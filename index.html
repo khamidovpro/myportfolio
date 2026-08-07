@@ -1,165 +1,284 @@
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <!-- Google Fonts ulash (head ichiga joylanadi) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G'ofurjon Xamidov — Shaxsiy Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-        /* Zamonaviy va chiroyli shriftlar */
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        background-color: #f0f4f8;
-        color: #2d3748;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 40px 20px;
-    }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f0f4f8;
+            color: #2d3748;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
 
-    h1, h2, h3 {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-    }
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1a202c;
+        }
 
-    /* Kompyuter ekrani uchun keng kartochka */
-    .card {
-        background: #ffffff;
-        max-width: 950px; /* Oldingi ingichka holatdan kengaytirildi */
-        width: 100%;
-        padding: 45px;
-        border-radius: 24px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* Ko'nikmalar to'plamini yonma-yon qilish */
-    .skills-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 15px;
-    }
-
-    /* Sertifikat va yutuqlarni kompyuterda 2 ustunli tarmoq qilish */
-    .achievements-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-        gap: 16px;
-        margin-top: 15px;
-    }
-
-    /* Telefonda ham chiroyli va qulay chiqishi uchun (Responsive) */
-    @media (max-width: 768px) {
         .card {
-            padding: 24px;
-            border-radius: 16px;
+            background: #ffffff;
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            position: relative;
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        .achievements-grid {
-            grid-template-columns: 1fr;
-        }
-    }
 
-    @keyframes slideUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        .theme-toggle {
+            background: #edf2f7;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
         }
-    }
-</style>
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3182ce;
+            margin-bottom: 15px;
+        }
+
+        .bio {
+            color: #718096;
+            margin-top: 10px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        /* Ko'nikmalar nishonlari */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            background: #ebf8ff;
+            color: #2b6cb0;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Yutuqlar kartochkalari */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 15px;
+        }
+
+        .item-card {
+            background: #f7fafc;
+            border-left: 4px solid #3182ce;
+            padding: 16px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .item-sub {
+            font-size: 13px;
+            color: #a0aec0;
+            margin-top: 4px;
+        }
+
+        .item-tag {
+            background: #edf2f7;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        /* Tugmalar */
+        .btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .btn-eco {
+            display: inline-block;
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-eco:hover {
+            background-color: #1b5e20;
+            transform: translateY(-2px);
+        }
+
+        .btn-telegram {
+            display: inline-block;
+            background-color: #3182ce;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-telegram:hover {
+            background-color: #2b6cb0;
+        }
+
+        ul {
+            list-style-position: inside;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card { padding: 20px; }
+            .achievements-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
     <div class="card">
-        <button id="theme-btn" class="theme-toggle" onclick="toggleTheme()">🌙 Tungi rejim</button>
-
-        <img src="avatar.jpg.png" alt="G'ofurjon Xamidov" class="profile-img">
-
-        <h1>G'ofurjon Xamidov</h1>
-
-        <p>Mutaxassisligim ekolog-muhandis. Bundan tashqari frontend dasturlash va moliya bozorlarida treyding yo'nalishlariga qattiq qiziqaman.</p>
-
-        <h2>Ko'nikmalarim & Texnologiyalar:</h2>
-        <div class="skills-container">
-            <span class="skill-tag">Ekologiya / GreenTech</span>
-            <span class="skill-tag">Moliya Bozori</span>
-            <span class="skill-tag">Turk tili:B2</span>
-            <span class="skill-tag">Word&Excell Pro</span>
-            <span class="skill-tag">AI(Middle)</span>
-            <span class="skill-tag">HTML5(Middle)</span>
-            <span class="skill-tag">CSS3(Middle)</span>
-            <span class="skill-tag">JavaScript (Basic)</span>
-            
+        <div class="top-bar">
+            <button class="theme-toggle">🌙 Tungi rejim</button>
         </div>
-        <h2>Yutuqlar va Sertifikatlar:</h2>
 
-<div class="achievement-item">
-    <div class="achievement-title">
-        <span>🎓 Ekologiya bo'yicha Bakalavr diplomi</span>
-        <span>94/100</span>
-    </div>
-    <p class="achievement-desc">Mutaxassislik bo'yicha yuqori ko'rsatkichli diplom</p>
-</div>
+        <div class="profile-header">
+            <img src="avatar.jpg" alt="G'ofurjon Xamidov" class="profile-img">
+            <h1>G'ofurjon Xamidov</h1>
+            <p class="bio">Mutaxassisligim ekolog-muhandis. Bundan tashqari frontend dasturlash va moliya bozorlarida treyding yo'nalishlariga qattiq qiziqaman.</p>
+        </div>
 
-<div class="achievement-item">
-    <div class="achievement-title">
-        <span>📜 Turk tili milliy sertifikati</span>
-        <span>B2 daraja</span>
-    </div>
-    <p class="achievement-desc">Til bilish darajasi bo'yicha milliy sertifikat</p>
-</div>
-<div class="achievement-item">
-    <div class="achievement-title">
-        <span>📜 Excell Masters Bitiruvchisi</span>
-        <span>Excell PRO</span>
-    </div>
-    <p class="achievement-desc">Excell dasturida pro ishlash</p>
-</div>
+        <h2 class="section-title">Ko'nikmalarim & Texnologiyalar:</h2>
+        <div class="skills-container">
+            <span class="skill-badge">Ekologiya / GreenTech</span>
+            <span class="skill-badge">Moliya Bozori</span>
+            <span class="skill-badge">Turk tili: B2</span>
+            <span class="skill-badge">Word & Excel Pro</span>
+            <span class="skill-badge">AI (Middle)</span>
+            <span class="skill-badge">HTML5 (Middle)</span>
+            <span class="skill-badge">CSS3 (Middle)</span>
+            <span class="skill-badge">JavaScript (Basic)</span>
+        </div>
 
-<div class="achievement-item">
-    <div class="achievement-title">
-        <span>🌱 Ekologik loyiha muallifi</span>
-        <span>2026</span>
-    </div>
-    <p class="achievement-desc">Chiqindilarni qayta ishlash va atrof-muhit muhofazasiga bag'ishlangan mahalliy loyiha</p>
-</div>
-<a href="loyiha.html" class="project-link">🌿 Eko-loyiha taqdimotini ko'rish</a>
+        <h2 class="section-title">Yutuqlar va Sertifikatlar:</h2>
+        <div class="achievements-grid">
+            <div class="item-card">
+                <div>
+                    <div class="item-title">🎓 Ekologiya bo'yicha Bakalavr diplomi</div>
+                    <div class="item-sub">Mutaxassislik bo'yicha yuqori ko'rsatkichli diplom</div>
+                </div>
+                <span class="item-tag">94/100</span>
+            </div>
 
-        <h2>Rejam va maqsadlarim:</h2>
+            <div class="item-card">
+                <div>
+                    <div class="item-title">📜 Turk tili milliy sertifikati</div>
+                    <div class="item-sub">Til bilish darajasi bo'yicha milliy sertifikat</div>
+                </div>
+                <span class="item-tag">B2 daraja</span>
+            </div>
+
+            <div class="item-card">
+                <div>
+                    <div class="item-title">📜 Excel Masters Bitiruvchisi</div>
+                    <div class="item-sub">Excel dasturida pro ishlash</div>
+                </div>
+                <span class="item-tag">Excel PRO</span>
+            </div>
+
+            <div class="item-card">
+                <div>
+                    <div class="item-title">🌱 Ekologik loyiha muallifi</div>
+                    <div class="item-sub">Chiqindilarni qayta ishlash va atrof-muhit muhofazasi</div>
+                </div>
+                <span class="item-tag">2026</span>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <a href="loyiha.html" class="btn-eco">🌿 Eko-loyiha taqdimotini ko'rish ➔</a>
+        </div>
+
+        <h2 class="section-title">Rejam va maqsadlarim:</h2>
         <ul>
             <li>Ekologiya sohasida foydali IT loyihalar yaratish</li>
             <li>Tabiatni asrashga texnologiyalar orqali hissa qo'shish</li>
             <li>Frontend bo'yicha bilimlarni chuqurlashtirib borish</li>
         </ul>
 
-        <a href="https://t.me/Xamidov0002" class="btn" target="_blank">Telegram orqali bog'lanish</a>
+        <div class="btn-container">
+            <a href="https://t.me/khamidovpro" target="_blank" class="btn-telegram">Telegram orqali bog'lanish</a>
+        </div>
     </div>
-
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-            var btn = document.getElementById('theme-btn');
-
-            if (document.body.classList.contains('dark-mode')) {
-                btn.textContent = '☀️ Kunduzgi rejim';
-            } else {
-                btn.textContent = '🌙 Tungi rejim';
-            }
-        }
-    </script>
 
 </body>
 </html>
