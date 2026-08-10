@@ -321,10 +321,52 @@
                 padding: 14px;
             }
         }
+        /* Ticker Bar Stillari */
+.ticker-wrap {
+    width: 100%;
+    background-color: #ef4444; /* Yorqin qizil fon */
+    color: #ffffff;            /* Oq yozuv */
+    padding: 10px 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(239, 68, 68, 0.3);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.ticker-text {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+}
+
+/* O'ngdan chapga harakatlanish animatsiyasi */
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+/* Ticker card ustiga chiqib qolmasligi uchun body padding'ini biroz oshiramiz */
+body {
+    padding-top: 70px !important;
+}
     </style>
 </head>
 <body>
-
+<!-- Yuguruvchi chiziq (Ticker Bar) -->
+<div class="ticker-wrap">
+    <div class="ticker-text" id="tickerText">
+        🚨 Sayt hozircha test rejimida ishlamoqda, hali o'zgartirishlar kiritiladi.
+    </div>
+</div>
     <div class="card">
         <!-- Yuqori panel: Til va Tungi rejim -->
         <div class="top-bar">
@@ -426,6 +468,7 @@
         const sunPath = 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z';
 
         themeBtn.addEventListener('click', () => {
+            document.getElementById('tickerText').textContent = dictionary[currentLangState].ticker;
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
 
@@ -444,7 +487,8 @@
         let currentLangState = 'uz';
 
         const dictionary = {
-            uz: {
+            uz: 
+                ticker: "🚨 Sayt hozircha test rejimida ishlamoqda, hali o'zgartirishlar kiritiladi."
                 bio: "Mutaxassisligim ekolog-muhandis. Bundan tashqari frontend dasturlash va moliya bozorlarida savdo qilishga qiziqaman.",
                 skillsTitle: "Ko'nikmalarim & Texnologiyalar:",
                 achievementsTitle: "Yutuqlar va Sertifikatlar:",
@@ -465,6 +509,7 @@
                 dayBtn: "Kunduzgi rejim"
             },
             en: {
+                ticker: "🚨 The site is currently in test mode, changes will be made."
                 bio: "I am an environmental engineer by profession. I am also passionate about frontend development and financial market trading.",
                 skillsTitle: "Skills & Technologies:",
                 achievementsTitle: "Skills & Technologies:",
