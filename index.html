@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -27,7 +26,40 @@
             justify-content: center;
             align-items: center;
             padding: 40px 20px;
+            padding-top: 70px !important;
             transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Ticker Bar Stillari */
+        .ticker-wrap {
+            width: 100%;
+            background-color: #ef4444; /* Yorqin qizil fon */
+            color: #ffffff;            /* Oq yozuv */
+            padding: 10px 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(239, 68, 68, 0.3);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-100%, 0);
+            }
         }
 
         /* Asosiy card kontent bloki */
@@ -180,12 +212,6 @@
             font-size: 15px;
         }
 
-        .item-sub {
-            font-size: 13px;
-            color: #718096;
-            margin-top: 4px;
-        }
-
         .item-tag {
             background: #edf2f7;
             padding: 6px 12px;
@@ -244,8 +270,7 @@
         }
 
         body.dark-mode .bio, 
-        body.dark-mode ul, 
-        body.dark-mode .item-sub {
+        body.dark-mode ul {
             color: #cbd5e1;
         }
 
@@ -321,243 +346,203 @@
                 padding: 14px;
             }
         }
-        /* Ticker Bar Stillari */
-.ticker-wrap {
-    width: 100%;
-    background-color: #ef4444; /* Yorqin qizil fon */
-    color: #ffffff;            /* Oq yozuv */
-    padding: 10px 0;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(239, 68, 68, 0.3);
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.ticker-text {
-    display: inline-block;
-    white-space: nowrap;
-    padding-left: 100%;
-    animation: marquee 15s linear infinite;
-}
-
-/* O'ngdan chapga harakatlanish animatsiyasi */
-@keyframes marquee {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(-100%, 0);
-    }
-}
-
-/* Ticker card ustiga chiqib qolmasligi uchun body padding'ini biroz oshiramiz */
-body {
-    padding-top: 70px !important;
-}
     </style>
 </head>
 <body>
+
 <!-- Yuguruvchi chiziq (Ticker Bar) -->
 <div class="ticker-wrap">
     <div class="ticker-text" id="tickerText">
         🚨 Sayt hozircha test rejimida ishlamoqda, hali o'zgartirishlar kiritiladi.
     </div>
 </div>
-    <div class="card">
-        <!-- Yuqori panel: Til va Tungi rejim -->
-        <div class="top-bar">
-            <button class="lang-toggle" id="langBtn">
-                🌐 <span id="currentLang">EN</span>
-            </button>
-            <button class="theme-toggle" aria-label="Mavzuni o'zgartirish">
-                <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-                <span class="theme-text">Tungi rejim</span>
-            </button>
-        </div>
 
-        <!-- Profil qismi -->
-        <div class="profile-header">
-            <img src="avatar.jpg" alt="G'ofurjon Xamidov" class="profile-img">
-            <h1>G'ofurjon Xamidov</h1>
-            <p class="bio">Mutaxassisligim ekolog-muhandis. Bundan tashqari frontend dasturlash va moliya bozorlarida savdo qilishga qiziqaman.</p>
-        </div>
+<div class="card">
+    <!-- Yuqori panel: Til va Tungi rejim -->
+    <div class="top-bar">
+        <button class="lang-toggle" id="langBtn">
+            🌐 <span id="currentLang">EN</span>
+        </button>
+        <button class="theme-toggle" aria-label="Mavzuni o'zgartirish">
+            <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span class="theme-text">Tungi rejim</span>
+        </button>
+    </div>
 
-        <!-- Ko'nikmalar -->
-        <div>
-            <h2 class="section-title">Ko'nikmalar & Texnologiyalar:</h2>
-            <div class="skills-container">
-                <span class="skill-badge">GreenTech</span>
-                <span class="skill-badge">Moliya Bozori</span>
-                <span class="skill-badge">Turk tili:</span>
-                 <span class="skill-badge">Ingliz tili:</span>
-                <span class="skill-badge">Word & Excel Pro</span>
-                <span class="skill-badge">AI (Middle)</span>
-                <span class="skill-badge">HTML5 (Middle)</span>
-                <span class="skill-badge">CSS3 (Middle)</span>
-                <span class="skill-badge">JavaScript (Basic)</span>
-            </div>
-        </div>
+    <!-- Profil qismi -->
+    <div class="profile-header">
+        <img src="avatar.jpg" alt="G'ofurjon Xamidov" class="profile-img">
+        <h1>G'ofurjon Xamidov</h1>
+        <p class="bio">Mutaxassisligim ekolog-muhandis. Bundan tashqari frontend dasturlash va moliya bozorlarida savdo qilishga qiziqaman.</p>
+    </div>
 
-        <!-- Yutuqlar va Sertifikatlar -->
-        <div>
-            <h2 class="section-title">Yutuqlar</h2>
-            <div class="achievements-grid">
-                <div class="item-card">
-                    <div>
-                        <div class="item-title">🎓Bakalavr</div>
-                    </div>
-                    <span class="item-tag">94/100</span>
-                </div>
-
-                <div class="item-card">
-                    <div>
-                        <div class="item-title">📜 Turk tili</div>
-                    </div>
-                    <span class="item-tag">61/75</span>
-                </div>
-
-                <div class="item-card">
-                    <div>
-                        <div class="item-title">📜 Excel Masters Bitiruvchisi</div>
-                    </div>
-                    <span class="item-tag">Excel PRO</span>
-                </div>
-
-                <div class="item-card">
-                    <div>
-                        <div class="item-title">🌱 Ekologik loyiha muallifi</div>
-                    </div>
-                    <span class="item-tag">2026</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Reja va Maqsadlar -->
-        <div>
-            <h2 class="section-title">Reja va maqsadlar:</h2>
-            <ul>
-                <li>Ekologiya sohasida foydali IT loyihalar yaratish</li>
-                <li>Tabiatni asrashga texnologiyalar orqali hissa qo'shish</li>
-                <li>Frontend bo'yicha bilimlarni chuqurlashtirib borish</li>
-            </ul>
-        </div>
-
-        <!-- Bog'lanish tugmasi -->
-        <div class="btn-container">
-            <a href="https://t.me/Xamidov0002" target="_blank" class="btn-telegram">Telegram</a>
+    <!-- Ko'nikmalar -->
+    <div>
+        <h2 class="section-title">Ko'nikmalar & Texnologiyalar:</h2>
+        <div class="skills-container">
+            <span class="skill-badge">GreenTech</span>
+            <span class="skill-badge">Moliya Bozori</span>
+            <span class="skill-badge">Turk tili</span>
+            <span class="skill-badge">Ingliz tili</span>
+            <span class="skill-badge">Word & Excel Pro</span>
+            <span class="skill-badge">AI (Middle)</span>
+            <span class="skill-badge">HTML5 (Middle)</span>
+            <span class="skill-badge">CSS3 (Middle)</span>
+            <span class="skill-badge">JavaScript (Basic)</span>
         </div>
     </div>
 
-    <!-- JavaScript qismi -->
-    <script>
-        // 1. Tungi rejim kodi
-        const themeBtn = document.querySelector('.theme-toggle');
-        const themeIcon = themeBtn.querySelector('.theme-icon');
-        const themeText = themeBtn.querySelector('.theme-text');
+    <!-- Yutuqlar va Sertifikatlar -->
+    <div>
+        <h2 class="section-title">Yutuqlar</h2>
+        <div class="achievements-grid">
+            <div class="item-card">
+                <div>
+                    <div class="item-title">🎓 Bakalavr</div>
+                </div>
+                <span class="item-tag">94/100</span>
+            </div>
 
-        const moonPath = 'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
-        const sunPath = 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z';
+            <div class="item-card">
+                <div>
+                    <div class="item-title">📜 Turk tili</div>
+                </div>
+                <span class="item-tag">61/75</span>
+            </div>
 
-        themeBtn.addEventListener('click', () => {
-            document.getElementById('tickerText').textContent = dictionary[currentLangState].ticker;
-            document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
+            <div class="item-card">
+                <div>
+                    <div class="item-title">📜 Excel Masters Bitiruvchisi</div>
+                </div>
+                <span class="item-tag">Excel PRO</span>
+            </div>
 
-            if (isDark) {
-                themeIcon.querySelector('path').setAttribute('d', sunPath);
-                themeText.textContent = currentLangState === 'uz' ? 'Kunduzgi rejim' : 'Day mode';
-            } else {
-                themeIcon.querySelector('path').setAttribute('d', moonPath);
-                themeText.textContent = currentLangState === 'uz' ? 'Tungi rejim' : 'Dark mode';
-            }
-        });
+            <div class="item-card">
+                <div>
+                    <div class="item-title">🌱 Ekologik loyiha muallifi</div>
+                </div>
+                <span class="item-tag">2026</span>
+            </div>
+        </div>
+    </div>
 
-        // 2. Tilni almashtirish kodi (Uz / En)
-        const langBtn = document.getElementById('langBtn');
-        const currentLangSpan = document.getElementById('currentLang');
-        let currentLangState = 'uz';
+    <!-- Reja va Maqsadlar -->
+    <div>
+        <h2 class="section-title">Reja va maqsadlar:</h2>
+        <ul>
+            <li>Ekologiya sohasida foydali IT loyihalar yaratish</li>
+            <li>Tabiatni asrashga texnologiyalar orqali hissa qo'shish</li>
+            <li>Frontend bo'yicha bilimlarni chuqurlashtirib borish</li>
+        </ul>
+    </div>
 
-        const dictionary = {
-            uz: 
-                ticker: "🚨 Sayt hozircha test rejimida ishlamoqda, hali o'zgartirishlar kiritiladi."
-                bio: "Mutaxassisligim ekolog-muhandis. Bundan tashqari frontend dasturlash va moliya bozorlarida savdo qilishga qiziqaman.",
-                skillsTitle: "Ko'nikmalar & Texnologiyalar:",
-                achievementsTitle: "Yutuqlar",
-                goalsTitle: "Reja va maqsadlar:",
-                degreeTitle: "🎓Bakalavr",
-                turkishTitle: "📜 Turk tili",
-                excelTitle: "📜 Excel Masters Bitiruvchisi",
-                ecoTitle: "🌱 Ekologik loyiha muallifi",
-                goal1: "Ekologiya sohasida foydali IT loyihalar yaratish",
-                goal2: "Tabiatni asrashga texnologiyalar orqali hissa qo'shish",
-                goal3: "Frontend bo'yicha bilimlarni chuqurlashtirib borish",
-                btnTg: "Telegram orqali bog'lanish",
-                darkBtn: "Tungi rejim",
-                dayBtn: "Kunduzgi rejim"
-            },
-            en: {
-                ticker: "🚨 The site is currently in test mode, changes will be made."
-                bio: "I am an environmental engineer by profession. I am also passionate about frontend development and financial market trading.",
-                skillsTitle: "Skills & Technologies:",
-                achievementsTitle: "Skills & Technologies:",
-                goalsTitle: "Plans & Goals:",
-                degreeTitle: "🎓 Bachelor's Degree",
-                turkishTitle: "📜 Turkish National Certificate",
-                excelTitle: "📜 Excel Masters Graduate",
-                ecoTitle: "🌱 Environmental Project Author",
-                goal1: "Creating useful IT projects in the field of ecology",
-                goal2: "Contributing to nature conservation through technology",
-                goal3: "Deepening knowledge in Frontend development",
-                btnTg: "Telegram",
-                darkBtn: "Dark mode",
-                dayBtn: "Day mode"
-            }
-        };
+    <!-- Bog'lanish tugmasi -->
+    <div class="btn-container">
+        <a href="https://t.me/Xamidov0002" target="_blank" class="btn-telegram">Telegram</a>
+    </div>
+</div>
 
-        langBtn.addEventListener('click', () => {
-            currentLangState = currentLangState === 'uz' ? 'en' : 'uz';
-            currentLangSpan.textContent = currentLangState === 'uz' ? 'EN' : 'UZ';
+<!-- JavaScript qismi -->
+<script>
+    // 1. Tungi rejim kodi
+    const themeBtn = document.querySelector('.theme-toggle');
+    const themeIcon = themeBtn.querySelector('.theme-icon');
+    const themeText = themeBtn.querySelector('.theme-text');
 
-            // Matnlarni yangilash
-            document.querySelector('.bio').textContent = dictionary[currentLangState].bio;
-            
-            const titles = document.querySelectorAll('.section-title');
-            titles[0].textContent = dictionary[currentLangState].skillsTitle;
-            titles[1].textContent = dictionary[currentLangState].achievementsTitle;
-            titles[2].textContent = dictionary[currentLangState].goalsTitle;
+    const moonPath = 'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
+    const sunPath = 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z';
 
-            const items = document.querySelectorAll('.item-card');
-            items[0].querySelector('.item-title').textContent = dictionary[currentLangState].degreeTitle;
-            items[0].querySelector('.item-sub').textContent = dictionary[currentLangState].degreeSub;
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
 
-            items[1].querySelector('.item-title').textContent = dictionary[currentLangState].turkishTitle;
-            items[1].querySelector('.item-sub').textContent = dictionary[currentLangState].turkishSub;
+        if (isDark) {
+            themeIcon.querySelector('path').setAttribute('d', sunPath);
+            themeText.textContent = currentLangState === 'uz' ? 'Kunduzgi rejim' : 'Day mode';
+        } else {
+            themeIcon.querySelector('path').setAttribute('d', moonPath);
+            themeText.textContent = currentLangState === 'uz' ? 'Tungi rejim' : 'Dark mode';
+        }
+    });
 
-            items[2].querySelector('.item-title').textContent = dictionary[currentLangState].excelTitle;
-            items[2].querySelector('.item-sub').textContent = dictionary[currentLangState].excelSub;
+    // 2. Tilni almashtirish kodi (Uz / En)
+    const langBtn = document.getElementById('langBtn');
+    const currentLangSpan = document.getElementById('currentLang');
+    let currentLangState = 'uz';
 
-            items[3].querySelector('.item-title').textContent = dictionary[currentLangState].ecoTitle;
-            items[3].querySelector('.item-sub').textContent = dictionary[currentLangState].ecoSub;
+    const dictionary = {
+        uz: {
+            ticker: "🚨 Sayt hozircha test rejimida ishlamoqda, hali o'zgartirishlar kiritiladi.",
+            bio: "Mutaxassisligim ekolog-muhandis. Bundan tashqari frontend dasturlash va moliya bozorlarida savdo qilishga qiziqaman.",
+            skillsTitle: "Ko'nikmalar & Texnologiyalar:",
+            achievementsTitle: "Yutuqlar",
+            goalsTitle: "Reja va maqsadlar:",
+            degreeTitle: "🎓 Bakalavr",
+            turkishTitle: "📜 Turk tili",
+            excelTitle: "📜 Excel Masters Bitiruvchisi",
+            ecoTitle: "🌱 Ekologik loyiha muallifi",
+            goal1: "Ekologiya sohasida foydali IT loyihalar yaratish",
+            goal2: "Tabiatni asrashga texnologiyalar orqali hissa qo'shish",
+            goal3: "Frontend bo'yicha bilimlarni chuqurlashtirib borish",
+            btnTg: "Telegram",
+            darkBtn: "Tungi rejim",
+            dayBtn: "Kunduzgi rejim"
+        },
+        en: {
+            ticker: "🚨 The site is currently in test mode, changes will be made.",
+            bio: "I am an environmental engineer by profession. I am also passionate about frontend development and financial market trading.",
+            skillsTitle: "Skills & Technologies:",
+            achievementsTitle: "Achievements",
+            goalsTitle: "Plans & Goals:",
+            degreeTitle: "🎓 Bachelor's Degree",
+            turkishTitle: "📜 Turkish Language Certificate",
+            excelTitle: "📜 Excel Masters Graduate",
+            ecoTitle: "🌱 Environmental Project Author",
+            goal1: "Creating useful IT projects in the field of ecology",
+            goal2: "Contributing to nature conservation through technology",
+            goal3: "Deepening knowledge in Frontend development",
+            btnTg: "Telegram",
+            darkBtn: "Dark mode",
+            dayBtn: "Day mode"
+        }
+    };
 
-            const goals = document.querySelectorAll('ul li');
-            goals[0].textContent = dictionary[currentLangState].goal1;
-            goals[1].textContent = dictionary[currentLangState].goal2;
-            goals[2].textContent = dictionary[currentLangState].goal3;
+    langBtn.addEventListener('click', () => {
+        currentLangState = currentLangState === 'uz' ? 'en' : 'uz';
+        currentLangSpan.textContent = currentLangState === 'uz' ? 'EN' : 'UZ';
 
-            document.querySelector('.btn-telegram').textContent = dictionary[currentLangState].btnTg;
-
-            // Tungi rejim tugmasining matnini ham tilga moslash
-            const isDark = document.body.classList.contains('dark-mode');
-            themeText.textContent = isDark ? dictionary[currentLangState].dayBtn : dictionary[currentLangState].darkBtn;
-        });
-    </script>
-</body>
-</html> 
-
+        // Ticker va Bio matnini yangilash
+        document.getElementById('tickerText').textContent = dictionary[currentLangState].ticker;
+        document.querySelector('.bio').textContent = dictionary[currentLangState].bio;
         
+        // Sarlavhalarni yangilash
+        const titles = document.querySelectorAll('.section-title');
+        titles[0].textContent = dictionary[currentLangState].skillsTitle;
+        titles[1].textContent = dictionary[currentLangState].achievementsTitle;
+        titles[2].textContent = dictionary[currentLangState].goalsTitle;
+
+        // Yutuqlar sarlavhalarini yangilash
+        const items = document.querySelectorAll('.item-card');
+        items[0].querySelector('.item-title').textContent = dictionary[currentLangState].degreeTitle;
+        items[1].querySelector('.item-title').textContent = dictionary[currentLangState].turkishTitle;
+        items[2].querySelector('.item-title').textContent = dictionary[currentLangState].excelTitle;
+        items[3].querySelector('.item-title').textContent = dictionary[currentLangState].ecoTitle;
+
+        // Maqsadlarni yangilash
+        const goals = document.querySelectorAll('ul li');
+        goals[0].textContent = dictionary[currentLangState].goal1;
+        goals[1].textContent = dictionary[currentLangState].goal2;
+        goals[2].textContent = dictionary[currentLangState].goal3;
+
+        // Tugma matnini yangilash
+        document.querySelector('.btn-telegram').textContent = dictionary[currentLangState].btnTg;
+
+        // Tungi rejim tugmasining matnini ham tilga moslash
+        const isDark = document.body.classList.contains('dark-mode');
+        themeText.textContent = isDark ? dictionary[currentLangState].dayBtn : dictionary[currentLangState].darkBtn;
+    });
+</script>
+</body>
+</html>
