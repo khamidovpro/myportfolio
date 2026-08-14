@@ -1,5 +1,5 @@
 
-    <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
@@ -111,25 +111,33 @@
             transition: transform 0.3s ease;
         }
 
-        /* Profil Qismi (Rasm kattalashtirildi) */
+        /* PROFIL QISMI (Kattalashtirilgan va halo effekti berilgan) */
         .profile-header {
             text-align: center;
         }
 
-        .profile-img {
-            width: 160px;
-            height: 160px;
+        .profile-img-container {
+            display: inline-block;
+            position: relative;
+            padding: 6px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #3182ce;
-            box-shadow: 0 8px 20px rgba(49, 130, 206, 0.25);
-            margin-bottom: 18px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, #3182ce, #6366f1);
+            box-shadow: 0 10px 25px rgba(49, 130, 206, 0.3);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
         }
 
-        .profile-img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 12px 25px rgba(49, 130, 206, 0.35);
+        .profile-img-container:hover {
+            transform: scale(1.04);
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 4px solid #ffffff;
         }
 
         .bio {
@@ -208,46 +216,64 @@
             color: #2d3748;
         }
 
-        /* Reja va Maqsadlar */
+        /* KREATIV MAQSADLAR QISMI (Yangi dizayn) */
         .goals-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
             margin-top: 15px;
         }
 
         .goal-card {
-            background: #f7fafc;
+            background: linear-gradient(145deg, #ffffff, #f7fafc);
             border: 1px solid #e2e8f0;
-            padding: 18px;
-            border-radius: 12px;
+            padding: 22px 18px;
+            border-radius: 16px;
             display: flex;
-            align-items: flex-start;
-            gap: 14px;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
             transition: all 0.3s ease;
         }
 
-        .goal-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            border-color: #3182ce;
+        .goal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3182ce, #6366f1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .goal-number {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 15px;
-            font-weight: 800;
-            color: #3182ce;
+        .goal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.07);
+            border-color: #cbd5e0;
+        }
+
+        .goal-card:hover::before {
+            opacity: 1;
+        }
+
+        .goal-icon {
+            font-size: 24px;
             background: #ebf8ff;
-            padding: 6px 10px;
-            border-radius: 8px;
-            flex-shrink: 0;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
         }
 
         .goal-text {
             font-size: 14px;
-            line-height: 1.5;
-            font-weight: 500;
+            line-height: 1.6;
+            font-weight: 600;
             color: #2d3748;
         }
 
@@ -292,19 +318,27 @@
             border-bottom-color: #334155;
         }
 
+        body.dark-mode .profile-img {
+            border-color: #1e293b;
+        }
+
         body.dark-mode .bio {
             color: #cbd5e1;
         }
 
-        body.dark-mode .item-card,
-        body.dark-mode .goal-card {
+        body.dark-mode .item-card {
             background-color: #0f172a;
             border-color: #334155;
             border-left-color: #38bdf8;
         }
 
-        body.dark-mode .goal-card:hover {
-            border-color: #38bdf8;
+        body.dark-mode .goal-card {
+            background: linear-gradient(145deg, #0f172a, #182234);
+            border-color: #334155;
+        }
+
+        body.dark-mode .goal-icon {
+            background: #1e3a8a;
         }
 
         body.dark-mode .item-tag {
@@ -312,14 +346,13 @@
             color: #f8fafc;
         }
 
-        body.dark-mode .skill-badge,
-        body.dark-mode .goal-number {
+        body.dark-mode .skill-badge {
             background-color: #1e3a8a;
             color: #93c5fd;
         }
 
         body.dark-mode .goal-text {
-            color: #cbd5e1;
+            color: #e2e8f0;
         }
 
         body.dark-mode .theme-toggle,
@@ -350,7 +383,7 @@
         @media (max-width: 640px) {
             body { padding: 15px 10px; }
             .card { padding: 22px 16px; border-radius: 18px; }
-            .profile-img { width: 120px; height: 120px; }
+            .profile-img { width: 130px; height: 130px; }
             h1 { font-size: 22px; }
             .bio { font-size: 14px; }
             .achievements-grid, .goals-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -383,7 +416,9 @@
 
     <!-- Profil qismi -->
     <div class="profile-header">
-        <img src="avatar.jpg" alt="G'ofurjon Xamidov" class="profile-img">
+        <div class="profile-img-container">
+            <img src="avatar.jpg" alt="G'ofurjon Xamidov" class="profile-img">
+        </div>
         <h1>G'ofurjon Xamidov</h1>
         <p class="bio">Mutaxassisligim ekolog-muhandis. Bundan tashqari frontend dasturlash va moliya bozorlarida savdo qilishga qiziqaman.</p>
     </div>
@@ -443,15 +478,15 @@
         <h2 class="section-title">Reja va maqsadlar:</h2>
         <div class="goals-grid">
             <div class="goal-card">
-                <span class="goal-number">01</span>
+                <div class="goal-icon">🚀</div>
                 <p class="goal-text">Ekologiya sohasida foydali IT loyihalar yaratish</p>
             </div>
             <div class="goal-card">
-                <span class="goal-number">02</span>
+                <div class="goal-icon">🌿</div>
                 <p class="goal-text">Tabiatni asrashga texnologiyalar orqali hissa qo'shish</p>
             </div>
             <div class="goal-card">
-                <span class="goal-number">03</span>
+                <div class="goal-icon">💻</div>
                 <p class="goal-text">Frontend bo'yicha bilimlarni chuqurlashtirib borish</p>
             </div>
         </div>
@@ -564,8 +599,17 @@
     });
 </script>
 </body>
-</html>
-        
+</html>  
+     
+     
+   
+
+
+  
+         
+   
+    
+    
          
          
       
